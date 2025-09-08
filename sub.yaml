@@ -9,13 +9,14 @@ proxies:
     udp: true
     servername: nn.2635144.xyz
     fingerprint: chrome
+    skip-cert-verify: true   
     ws-opts:
       path: "/ss"
       headers:
         Host: nn.2635144.xyz
 
 proxy-groups:
-  - name: "Proxy"
+  - name: "🚀 节点选择"      
     type: select
     proxies:
       - "原生-MXG"
@@ -23,4 +24,4 @@ proxy-groups:
 
 rules:
   - GEOIP,CN,DIRECT
-  - MATCH,Proxy
+  - MATCH,🚀 节点选择
