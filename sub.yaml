@@ -1,0 +1,26 @@
+proxies:
+  - name: "原生-MXG"
+    type: vless
+    server: nn.2635144.xyz
+    port: 443
+    uuid: 4b17dc92-488f-4ed4-a2d4-9e2cabba21e1
+    network: ws
+    tls: true
+    udp: true
+    servername: nn.2635144.xyz
+    fingerprint: chrome
+    ws-opts:
+      path: "/ss"
+      headers:
+        Host: nn.2635144.xyz
+
+proxy-groups:
+  - name: "Proxy"
+    type: select
+    proxies:
+      - "原生-MXG"
+      - DIRECT
+
+rules:
+  - GEOIP,CN,DIRECT
+  - MATCH,Proxy
