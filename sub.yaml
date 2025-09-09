@@ -1,5 +1,5 @@
 proxies:
-  - name: "原生-MXG"
+  - name: "原生-MXG-直连"
     type: vless
     server: nn.2635144.xyz
     port: 443
@@ -9,17 +9,34 @@ proxies:
     udp: true
     servername: nn.2635144.xyz
     fingerprint: chrome
-    skip-cert-verify: true   
+    skip-cert-verify: true
     ws-opts:
       path: "/ss"
       headers:
         Host: nn.2635144.xyz
 
+  - name: "原生-MXG-CF"
+    type: vless
+    server: 80.251.222.131      
+    port: 443
+    uuid: 4b17dc92-488f-4ed4-a2d4-9e2cabba21e1
+    network: ws
+    tls: true
+    udp: true
+    servername: nn.2635144.xyz   
+    fingerprint: chrome
+    skip-cert-verify: true
+    ws-opts:
+      path: "/ss"
+      headers:
+        Host: nn.2635144.xyz     
+
 proxy-groups:
-  - name: "🚀 节点选择"      
+  - name: "🚀 节点选择"
     type: select
     proxies:
-      - "原生-MXG"
+      - "原生-MXG-直连"
+      - "原生-MXG-CF"
       - DIRECT
 
 rules:
